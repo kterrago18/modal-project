@@ -10,7 +10,15 @@
       <p>{{ text }}</p>
     </Modal>
   </div>
+  <div v-if="showModalTwo">
+    <Modal theme="" @close="toggleModalTwo">
+      <h1>{{ header }}</h1>
+      <p>{{ text }}</p>
+    </Modal>
+  </div>
   <button @click.left="toggleModal">Open Modal</button>
+  <button @click.left="toggleModalTwo">Open Modal</button>
+
 </template>
 
 <script>
@@ -23,7 +31,8 @@ export default {
       title: 'My First Vue App :)',
       header: 'Sign up for the Giveaway!',
       text: 'Grab your ninja swag for half price!',
-      showModal: false
+      showModal: false,
+      showModalTwo: false
     }
   },
   components: {
@@ -32,6 +41,9 @@ export default {
   methods: {
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
